@@ -2,7 +2,7 @@
 
 An MCP server for [JoDi-SDD](https://github.com/JoDi-SDD/JoDi-SDD), the spec-driven development kit. It delivers the kit to any MCP client: the kit's skills served over the Skills extension, and its rules enforced in tools, so the model changes spec state only through checks the server runs.
 
-> **Not usable yet.** This repository is being set up. The design starts from [docs/brief.md](docs/brief.md); nothing is implemented or released.
+> **Not usable yet.** This repository is being set up. What it will do is in [docs/intent.md](docs/intent.md) and [PLAN.md](PLAN.md); nothing is implemented or released.
 
 ## How it relates to the kit
 
