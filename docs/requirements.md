@@ -10,7 +10,7 @@
 
 | ID | Requirement | Source | Pri |
 |---|---|---|---|
-| FR-KIT-01 | The server package bundles the pinned kit release's `skills/` and `bin/jsdd`. | docs/legacy/brief.md D3 | M |
+| FR-KIT-01 | The server package bundles the pinned kit release's `skills/`, `bin/jsdd`, `templates/`, and `starters/`. | docs/legacy/brief.md D3; DEC-11 | M |
 | FR-KIT-02 | At startup the server reads the kit version from `bin/jsdd --json` and refuses to start, with a clear message, when it is outside the supported range. | docs/legacy/brief.md D3, NFR-5 | M |
 
 ### 1.2 Skills
