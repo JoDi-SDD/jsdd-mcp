@@ -19,7 +19,7 @@ Items end with the requirements they cover after a `·`: a group such as `FR-AUT
 Each is a spike spec run with `/jsdd:spike`; their goal questions are in `BACKLOG.md` "Spikes".
 
 - [x] **Kit surface** · ND-06 · [001](specs/001-kit-surface/spec.md)
-- [ ] **Language and SDK** · ND-01, ND-03
+- [x] **Language and SDK** · ND-01, ND-03 · [002](specs/002-language-and-sdk/spec.md)
 - [ ] **Client support** · ND-02
 
 ### Foundations
@@ -32,6 +32,8 @@ Each item becomes a feature spec (`/jsdd:specify`), split if it takes more than 
   - Additive status/next fields, including `action`.
   - Exclusive spec and task claims.
   - `jsdd template <name>`.
+  - The Release workflow attaches a bundle tarball (`skills/`, `bin/jsdd`, `templates/`, `starters/`) so dependents can pin its sha256 (DEC-13).
+  - Check that the README's requirements match what bin/jsdd needs (bash 3.2 + awk per its header, or also jq and python3).
   - Checks to include: a race test between a spec claim and a task claim, local and remote; and a bundle-only test (`skills/`, `bin/jsdd`, `templates/`, `starters/` copied alone report the version and run `new`).
   - Start from an up-to-date main in the local kit clone.
 - [ ] Kit release 2, client-neutral skills (DEC-09):
@@ -40,7 +42,9 @@ Each item becomes a feature spec (`/jsdd:specify`), split if it takes more than 
   - Client-specific text is reworded.
   - Checks to include: `skills-ref validate` passes on every skill; `argument-hint` under `metadata` still gives hints in the plugin.
   - Needed before Phase 1's skills item, not before Phase 0 exits.
-- [ ] Repository layout, build, test command, and CI. · NFR-PORT-01
+- [ ] Repository layout, build, test command, and CI (TypeScript, DEC-12; npm package with the pinned kit, DEC-13). · NFR-PORT-01
+  - Windows with Git Bash: a Windows CI job here, required before 1.0 (specs/002-language-and-sdk Q10).
+  - Checks to include: `npm pack` with the bundled kit, installed, still runs `bash <bundle>/bin/jsdd version --json`; a minimal `loadSkills` server on the bundled `skills/` passes MCP Inspector's skill verifier.
 
 ### Exit criteria
 
