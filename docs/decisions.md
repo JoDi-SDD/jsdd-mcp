@@ -13,6 +13,10 @@ The register of decisions. Settled choices get a `DEC-nn` row; open ones keep th
 | DEC-05 | Boundary rules | Core never names a channel; channels never name each other; rules have one implementation in `bin/jsdd`; the server uses only `bin/jsdd --json` and the shipped `skills/`. | Keeps one source of rules. Recorded as P1, P2, P4 in the constitution. (docs/legacy/brief.md D5) | 2026-11-27 |
 | DEC-06 | Kit changes first | Milestone 1 waits on kit releases: JSON output for coverage, claiming, and ticking; atomic claims in the CLI; client-neutral skill text. | The server may not reimplement or reach around the kit. (docs/legacy/brief.md D6) | 2026-11-27 |
 | DEC-07 | Transport | v1 is local stdio only, one process per session. | Simplest, and no hosted service to run. (docs/legacy/brief.md §3) | 2026-11-27 |
+| DEC-08 | Claim store | Use bin/jsdd's existing store: `<git-common-dir>/sdd-claims/` locally, `refs/sdd-claims/*` on the remote in remote mode. No new store. | It is already atomic per task in both modes, and every channel calling bin/jsdd sees the same claims. Settles ND-06. (specs/001-kit-surface) | 2026-11-27 |
+| DEC-09 | DEC-06 ships as two kit releases | Release 1, machine output: the version stamped into bin/jsdd plus `jsdd version --json`; JSON for coverage, claim, release, claims and done (a failing check returns an output tail plus the total size); additive status/next fields (structured claim, per-task claims, coverage summary, `action: {skill, spec}`); spec claims and task claims made atomically exclusive; `jsdd template <name>`. Release 2, client-neutral skills: agent prompts in the core as `skills/<name>/references/`, `argument-hint` under `metadata`, client-specific text reworded, and skills keep the `jsdd <command>` vocabulary. | Release 1 is small and additive, and it unblocks the Milestone 1 tools. The skill rewording is large. (specs/001-kit-surface) | 2026-11-27 |
+| DEC-10 | Server session rules | Each server process sets a new UUID as `JSDD_SESSION_ID`. The tick tool refuses manual checks and reports "needs a person". | Orphaned claims after a restart are acceptable until leases (FR-WORK-04/05). Manual ticks would let the agent tick its own box. (specs/001-kit-surface) | 2026-11-27 |
+| DEC-11 | Bundle contents | The server bundles `skills/`, `bin/jsdd`, `templates/` and `starters/` from the pinned kit release. FR-KIT-01 is amended to match. | bin/jsdd needs templates/ and starters/ for `new` and `init`, and this keeps one copy. (specs/001-kit-surface) | 2026-11-27 |
 
 ## Still open
 
@@ -23,7 +27,6 @@ The register of decisions. Settled choices get a `DEC-nn` row; open ones keep th
 | ND-03 | How the server ships and bundles the kit | PyPI (`uvx`); npm; run from a git tag | Follows ND-01. | docs/legacy/brief.md Q6 |
 | ND-04 | How the supported kit range is declared and checked | Same convention as `sdd-runtime`'s pin; a range in package metadata | Share the `sdd-runtime` convention. | docs/legacy/brief.md Q7 |
 | ND-05 | Where server releases are announced | Own Announce step to org Announcements; none until 1.0 | Own step, titled "JoDi-SDD MCP server vX.Y.Z". | docs/legacy/brief.md Q8 |
-| ND-06 | Claim store | Whatever `bin/jsdd` uses today; files under the git common dir; git refs on the remote | Use what `bin/jsdd` does, so all channels see the same claims. | docs/legacy/brief.md §7, A1 |
 
 ## Assumed
 

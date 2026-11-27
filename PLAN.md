@@ -8,7 +8,7 @@ Items end with the requirements they cover after a `·`: a group such as `FR-AUT
 
 | Phase | Goal | Status |
 | --- | --- | --- |
-| 0. Spikes and foundations | Settle the unknowns that can change the design, and stand up an empty but deployed skeleton | Not started |
+| 0. Spikes and foundations | Settle the unknowns that can change the design, and stand up an empty but deployed skeleton | In progress |
 | 1. MVP | The first version | Not started |
 | 2+. Later | Work through `BACKLOG.md` "Next", in priority order | Not started |
 
@@ -18,7 +18,7 @@ Items end with the requirements they cover after a `·`: a group such as `FR-AUT
 
 Each is a spike spec run with `/jsdd:spike`; their goal questions are in `BACKLOG.md` "Spikes".
 
-- [ ] **Kit surface** · ND-06
+- [x] **Kit surface** · ND-06 · [001](specs/001-kit-surface/spec.md)
 - [ ] **Language and SDK** · ND-01, ND-03
 - [ ] **Client support** · ND-02
 
@@ -26,13 +26,26 @@ Each is a spike spec run with `/jsdd:spike`; their goal questions are in `BACKLO
 
 Each item becomes a feature spec (`/jsdd:specify`), split if it takes more than a few days.
 
-- [ ] Kit release with the DEC-06 changes, made in `JoDi-SDD/JoDi-SDD` and pinned here.
+- [ ] Kit release 1, machine output (DEC-09), made in `JoDi-SDD/JoDi-SDD` and pinned here:
+  - A version stamped into bin/jsdd, plus `jsdd version --json`.
+  - JSON for coverage, claim, release, claims and done.
+  - Additive status/next fields, including `action`.
+  - Exclusive spec and task claims.
+  - `jsdd template <name>`.
+  - Checks to include: a race test between a spec claim and a task claim, local and remote; and a bundle-only test (`skills/`, `bin/jsdd`, `templates/`, `starters/` copied alone report the version and run `new`).
+  - Start from an up-to-date main in the local kit clone.
+- [ ] Kit release 2, client-neutral skills (DEC-09):
+  - Agent prompts move into the core as `skills/<name>/references/`.
+  - `argument-hint` moves under `metadata`.
+  - Client-specific text is reworded.
+  - Checks to include: `skills-ref validate` passes on every skill; `argument-hint` under `metadata` still gives hints in the plugin.
+  - Needed before Phase 1's skills item, not before Phase 0 exits.
 - [ ] Repository layout, build, test command, and CI. · NFR-PORT-01
 
 ### Exit criteria
 
 - All three spikes are closed.
-- The DEC-06 kit release is published and pinned here.
+- Kit release 1 (DEC-09) is published and pinned here.
 - An empty server builds, passes its test command in CI, and starts against the pinned kit.
 
 ## Phase 1: MVP
@@ -40,6 +53,6 @@ Each item becomes a feature spec (`/jsdd:specify`), split if it takes more than 
 Milestone 1: prove the enforcement idea. Tested with MCP Inspector and from at least one client.
 
 - [ ] Server skeleton, bundled kit, and startup version check. · FR-KIT
-- [ ] Skills served from the bundled kit. · FR-SKL, NFR-SEC-01
+- [ ] Skills served from the bundled kit (needs kit release 2). · FR-SKL, NFR-SEC-01
 - [ ] Status and coverage tools. · FR-STAT
 - [ ] Atomic claims and enforced ticking. · FR-WORK-01, FR-WORK-02, FR-WORK-03, NFR-STATE-01

@@ -9,9 +9,9 @@ One line per open decision: its `ND-nn`, a one-line summary, and a suggested def
 - [ ] **ND-01 Language and runtime.** Suggested: Python, unless the TypeScript SDK supports Skills and Tasks clearly better. Settled by the Language and SDK spike.
 - [ ] **ND-02 Which clients v1 is tested against.** Suggested: the clients that support Skills plus one tools-only client. Settled by the Client support spike.
 - [ ] **ND-03 How the server ships and bundles the kit.** Suggested: PyPI with `uvx jsdd-mcp`, the build fetching the pinned kit tag. Settled by the Language and SDK spike.
-- [ ] **ND-04 How the supported kit range is declared.** Suggested: the `sdd-runtime` convention (one pinned version, checked against `bin/jsdd --json`). Settle in the foundations spec.
+- [ ] **ND-04 How the supported kit range is declared.** Suggested: the `sdd-runtime` convention (one pinned version, checked against `bin/jsdd --json`). Settle in the foundations spec; it can build on `jsdd version --json` from kit release 1 (DEC-09).
 - [ ] **ND-05 Where server releases are announced.** Suggested: its own Announce step posting "JoDi-SDD MCP server vX.Y.Z" to org Announcements. Settle before the first release.
-- [ ] **ND-06 Claim store.** Suggested: whatever `bin/jsdd` uses today. Settled by the Kit surface spike.
+- [x] **ND-06 Claim store.** Suggested: whatever `bin/jsdd` uses today. Settled as DEC-08 by [001 Kit surface](specs/001-kit-surface/spec.md).
 
 ## Spikes
 
