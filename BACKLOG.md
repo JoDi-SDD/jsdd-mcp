@@ -41,6 +41,7 @@ Settles ND-02. Depends on nothing.
 ## Next: after the MVP
 
 - Leases with heartbeat and TTL, and `release_claim` with Elicitation takeover. · FR-WORK-04, FR-WORK-05
+  - Start with a form elicitation round trip (`input_required`) against MCP Inspector (specs/002-language-and-sdk).
 - Resources under `jsdd://`. · FR-RES-01
 - Spec, plan, decision, and scaffold tools, with Elicitation for approvals. · FR-SPEC
 - `run_verification` as a Task. · FR-LONG-01

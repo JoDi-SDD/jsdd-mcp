@@ -6,7 +6,7 @@ Guidance for Claude Code in this repository.
 
 `jsdd-mcp` is the MCP channel for the JoDi-SDD kit: a local stdio MCP server that serves the kit's `skills/` and exposes its rules as tools. The Claude Code plugin is the other channel and lives in `JoDi-SDD/JoDi-SDD`, next to the kit's core.
 
-The project is set up for spec-driven development: start from [docs/intent.md](docs/intent.md), [specs/constitution.md](specs/constitution.md), [PLAN.md](PLAN.md), and `/jsdd:status`. The original design brief is kept in [docs/legacy/brief.md](docs/legacy/brief.md) for reference; where it disagrees with the kit files, the kit files win. The language and runtime are not chosen yet (ND-01 in [docs/decisions.md](docs/decisions.md)); don't add code or tooling until that's decided.
+The project is set up for spec-driven development: start from [docs/intent.md](docs/intent.md), [specs/constitution.md](specs/constitution.md), [PLAN.md](PLAN.md), and `/jsdd:status`. The original design brief is kept in [docs/legacy/brief.md](docs/legacy/brief.md) for reference; where it disagrees with the kit files, the kit files win. The server is TypeScript on Node.js with the official MCP SDK v2 (DEC-12), shipped on npm as `jsdd-mcp` with the pinned kit bundled (DEC-13); see [docs/decisions.md](docs/decisions.md).
 
 ## Boundary rules
 

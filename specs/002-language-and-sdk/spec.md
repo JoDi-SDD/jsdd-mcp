@@ -2,7 +2,7 @@
 id: 002
 title: "Language and SDK"
 type: spike
-status: in-progress
+status: done
 phase: 0
 depends_on: []
 refs:
@@ -148,16 +148,16 @@ All checked 2026-11-27.
 - Windows with Git Bash before 1.0, with a Windows CI job in the foundations spec (Q10). Noted on the PLAN.md repository layout item.
 - `.mcpb` bundle after the MVP (Q9). Added to BACKLOG.md "Next".
 - ND-04 stays open for the foundations spec; it can build on the DEC-13 pin (version plus sha256). Noted on its BACKLOG.md line.
-- Things to try (optional checks for the foundations spec; not run yet):
-  - Throwaway TypeScript v2.4 server in `specs/002-language-and-sdk/prototype/ts/`: `loadSkills` on a copy of the kit's `skills/` plus one tool running `bash bin/jsdd version --json`; check with MCP Inspector's skill verifier. ~2 h.
-  - The same in Python with `mcp` from git main (`mcp.server.skills` handlers reading the folder); compare code size and whether manifests match the TypeScript ones byte for byte. ~2–3 h.
-  - A `hatch_build.py` that downloads a kit tag, checks a sha256, adds the bundle with `force_include`; inspect modes with `unzip -Z` and confirm `uvx --from ./dist/*.whl` starts. ~2 h.
-  - `npm pack` with the bundle inside, install, inspect the mode of `bin/jsdd`. ~30 min.
-  - Form elicitation round trip (`input_required`) from a test tool in both SDKs against MCP Inspector, for FR-WORK-05 and FR-SPEC-02. ~1–2 h per SDK.
-- Check in the kit whether `bin/jsdd` needs `jq` and `python3` (README) or only bash 3.2 + awk (shebang comment); align the README.
+- Things to try, each placed or dropped at close:
+  - Throwaway TypeScript server with `loadSkills` on a copy of the kit's `skills/` plus a tool running `bash bin/jsdd version --json`, checked with MCP Inspector's skill verifier → attached as a check to the PLAN.md repository layout item.
+  - `npm pack` with the bundle inside, install, inspect the mode of `bin/jsdd` → attached as a check to the PLAN.md repository layout item.
+  - Form elicitation round trip (`input_required`) against MCP Inspector, for FR-WORK-05 and FR-SPEC-02 → BACKLOG.md "Next", with the takeover item.
+  - Python prototype and `hatch_build.py` wheel test → dropped: DEC-12 chose TypeScript.
+- Check whether `bin/jsdd` needs `jq` and `python3` (kit README) or only bash 3.2 + awk (its header), and align the README → attached as a check to the PLAN.md kit release 1 item.
 
 ## Changelog
 
 - 2026-11-27 Created.
 - 2026-11-27 Briefing and 10 questions prepared; in progress.
 - 2026-11-27 All questions answered. Recommendation agreed with the user and recorded as DEC-12 and DEC-13.
+- 2026-11-27 Verified and closed. Follow-ups placed: kit tarball and README check on PLAN.md release 1, Windows CI and prototype checks on the repository layout item, `.mcpb` and an elicitation round trip in BACKLOG.md "Next"; Python experiments dropped.
